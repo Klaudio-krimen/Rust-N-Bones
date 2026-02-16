@@ -9,11 +9,12 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-/* --- FONDO CON PATRÓN --- */
+/* --- FONDO GENERAL (Calaveras) --- */
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: var(--font-body);
+    /* Busca patroncalavera.jpg en la raíz */
     background-image: 
         linear-gradient(rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.96)),
         url('patroncalavera.jpg');
@@ -22,7 +23,7 @@ body {
     background-size: 300px;
 }
 
-/* --- NAV --- */
+/* --- MENÚ DE NAVEGACIÓN --- */
 nav {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 5%; background: rgba(0,0,0,0.95); position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid #333;
@@ -32,9 +33,10 @@ nav {
 .nav-links a { text-decoration: none; color: white; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 .btn-nav { border: 1px solid var(--accent); padding: 5px 15px; color: var(--accent) !important; }
 
-/* --- HERO (PORTADA) --- */
+/* --- PORTADA (HERO SECTION) --- */
 .hero {
     min-height: 100vh;
+    /* Busca fondometal.jpg en la raíz */
     background: url('fondometal.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
@@ -50,103 +52,108 @@ nav {
 }
 
 .hero-container {
-    position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto;
+    position: relative; z-index: 2; width: 100%; max-width: 1400px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
 }
 
-.hero-text { flex: 1; min-width: 300px; margin-right: 20px; }
+.hero-text { flex: 1; min-width: 300px; margin-right: 20px; z-index: 3; }
 .hero h1 { font-family: var(--font-head); font-size: 4rem; line-height: 1; margin-bottom: 10px; color: #fff; text-shadow: 2px 2px 10px #000; }
 .slogan-main { font-size: 1.2rem; color: var(--accent); margin-bottom: 30px; letter-spacing: 2px; }
 
-/* IMAGEN HERO DESTACADA (EL PEZ PNG) */
-.hero-img-box { flex: 1; display: flex; justify-content: center; }
+/* --- IMAGEN DEL PEZ (AUMENTADA) --- */
+.hero-img-box { 
+    flex: 1.2; /* Le damos más espacio a la caja de la imagen */
+    display: flex; 
+    justify-content: center; 
+}
 
 .hero-featured-img {
     max-width: 100%;
-    width: 500px;
+    /* AQUÍ ESTÁ EL TAMAÑO AUMENTADO */
+    width: 800px; 
     border: none; 
-    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.8));
+    /* Sombra inteligente que sigue la forma del pez */
+    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.9));
+    /* Animación de flotación */
     animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
 }
 
 /* --- BOTONES (CORREGIDOS) --- */
-.cta-group { display: flex; gap: 10px; margin-top: 20px; }
+.cta-group { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
 
-/* Aquí está el arreglo mágico: display inline-block y margenes */
 .btn-primary { 
-    display: inline-block; /* Esto evita que se monte encima del texto */
+    display: inline-block;
     background: var(--accent); 
     color: white; 
-    padding: 12px 25px; 
+    padding: 15px 30px; 
     text-decoration: none; 
     font-weight: bold; 
     border: 2px solid var(--accent); 
-    margin: 10px 0; /* Espacio arriba y abajo */
+    margin-bottom: 10px; /* Espacio de seguridad abajo */
 }
 
 .btn-secondary { 
     display: inline-block;
     background: transparent; 
     color: white; 
-    padding: 12px 25px; 
+    padding: 15px 30px; 
     text-decoration: none; 
     font-weight: bold; 
     border: 2px solid white; 
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 /* --- GALERÍA --- */
 section { padding: 80px 5%; border-bottom: 1px solid #222; }
-.section-header { text-align: center; margin-bottom: 50px; }
-h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); border-bottom: 3px solid var(--accent); display: inline-block; }
+.section-header { text-align: center; margin-bottom: 60px; }
+h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 10px; }
 .subtitle { display: block; margin-top: 10px; color: #888; letter-spacing: 2px; }
 
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
 .card { background: #141414; border: 1px solid #333; transition: 0.3s; }
-.card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
 .card-img { 
-    height: 250px; 
+    height: 300px; 
     background-size: cover; 
     background-position: center; 
-    background-color: #000; 
-    filter: grayscale(80%); 
+    background-color: #050505; 
+    filter: grayscale(60%); 
     transition: 0.3s; 
 }
 .card:hover .card-img { filter: grayscale(0%); }
 
-.card-info { padding: 20px; }
-.card-info h3 { font-family: var(--font-head); color: white; margin-bottom: 5px; }
-.card-info p { color: #aaa; font-size: 0.9rem; margin-bottom: 10px; }
-.tag { font-size: 0.7rem; background: #222; color: var(--accent); padding: 3px 8px; border: 1px solid #444; }
+.card-info { padding: 25px; }
+.card-info h3 { font-family: var(--font-head); color: white; margin-bottom: 10px; font-size: 1.3rem; }
+.card-info p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; }
+.tag { font-size: 0.75rem; background: #222; color: var(--accent); padding: 5px 10px; border: 1px solid #444; font-weight: bold; }
 
 /* --- TEXTO Y FOOTER --- */
-.text-section { text-align: center; background: rgba(0,0,0,0.2); }
+.text-section { text-align: center; background: rgba(0,0,0,0.3); }
 .content-box { max-width: 700px; margin: 0 auto; }
-.lead { font-size: 1.3rem; color: var(--accent); font-style: italic; margin-bottom: 20px; }
-.divider { border: 0; height: 1px; background: #333; width: 100px; margin: 20px auto; }
+.lead { font-size: 1.4rem; color: var(--accent); font-style: italic; margin-bottom: 30px; }
+.divider { border: 0; height: 1px; background: #333; width: 100px; margin: 30px auto; }
 
-footer { text-align: center; padding: 60px 20px; background: #000; border-top: 4px solid var(--accent); }
-footer h3 { font-family: var(--font-head); margin-bottom: 20px; color: white; }
+footer { text-align: center; padding: 80px 20px; background: #000; border-top: 4px solid var(--accent); }
+footer h3 { font-family: var(--font-head); margin-bottom: 20px; color: white; font-size: 1.5rem; }
+footer p { color: #888; margin-bottom: 30px; }
+.copyright { margin-top: 50px; font-size: 0.8rem; color: #444; }
 
-/* Arreglo extra para el footer: más espacio alrededor del botón */
-footer p { margin-bottom: 20px; } 
-footer .btn-primary { margin-top: 20px; margin-bottom: 30px; }
-
-.copyright { margin-top: 40px; font-size: 0.8rem; color: #555; }
-
-/* CELULARES */
-@media (max-width: 768px) {
-    .hero-container { flex-direction: column; text-align: center; }
-    .hero-text { margin-right: 0; margin-bottom: 40px; }
+/* --- MÓVIL (RESPONSIVE) --- */
+@media (max-width: 900px) {
+    .hero-container { flex-direction: column; text-align: center; padding-top: 20px; }
+    .hero-text { margin-right: 0; margin-bottom: 50px; }
     .hero h1 { font-size: 3rem; }
     .cta-group { justify-content: center; }
-    .hero-featured-img { width: 300px; }
+    
+    /* Pez grande en móvil pero sin salirse */
+    .hero-featured-img { width: 90%; max-width: 500px; }
+    
     .nav-links { display: none; }
 }
