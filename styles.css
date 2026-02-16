@@ -5,7 +5,7 @@
     --text-main: #e0e0e0;
     --font-head: 'Black Ops One', cursive;
     --font-body: 'Roboto', sans-serif;
-    --whatsapp-green: #25d366; /* Verde oficial de WhatsApp */
+    --whatsapp-green: #25d366;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -32,6 +32,16 @@ nav {
 .nav-links { list-style: none; display: flex; gap: 20px; }
 .nav-links a { text-decoration: none; color: white; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 .btn-nav { border: 1px solid var(--accent); padding: 5px 15px; color: var(--accent) !important; }
+
+/* Botón Hamburguesa (Oculto en PC) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
 
 /* --- PORTADA (HERO) --- */
 .hero {
@@ -74,7 +84,7 @@ nav {
     100% { transform: translateY(0px); }
 }
 
-/* --- BOTONES HERO --- */
+/* --- BOTONES --- */
 .cta-group { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
 .btn-primary { 
     display: inline-block; background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); margin-bottom: 10px; 
@@ -106,13 +116,13 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 .card-info p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; }
 .tag { font-size: 0.75rem; background: #222; color: var(--accent); padding: 5px 10px; border: 1px solid #444; font-weight: bold; }
 
-/* --- TEXTO HISTORIA --- */
+/* --- HISTORIA --- */
 .text-section { text-align: center; background: rgba(0,0,0,0.3); }
 .content-box { max-width: 700px; margin: 0 auto; }
 .lead { font-size: 1.4rem; color: var(--accent); font-style: italic; margin-bottom: 30px; }
 .divider { border: 0; height: 1px; background: #333; width: 100px; margin: 30px auto; }
 
-/* --- FOOTER & CONTACTO --- */
+/* --- CONTACTO --- */
 footer { background: #050505; padding: 80px 5% 30px 5%; border-top: 4px solid var(--accent); color: #ccc; }
 .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: 0 auto; gap: 50px; }
 .footer-info { flex: 1; min-width: 300px; text-align: left; }
@@ -130,51 +140,50 @@ footer { background: #050505; padding: 80px 5% 30px 5%; border-top: 4px solid va
 .full-width { width: 100%; text-align: center; cursor: pointer; border: none; font-size: 1.1rem; }
 .copyright { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #222; font-size: 0.8rem; color: #555; }
 
-/* --- BOTÓN FLOTANTE WHATSAPP --- */
+/* --- WHATSAPP --- */
 .btn-whatsapp {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--whatsapp-green);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    z-index: 2000; /* Siempre encima de todo */
-    transition: transform 0.3s ease;
+    position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 2000; transition: transform 0.3s ease; animation: whatsapp-pulse 3s infinite;
 }
-
-.btn-whatsapp:hover {
-    transform: scale(1.1); /* Crece un poquito al pasar el mouse */
-    background-color: #1ebe57;
-}
-
-/* Animación de pulso para llamar la atención */
-.btn-whatsapp {
-    animation: whatsapp-pulse 3s infinite;
-}
-
+.btn-whatsapp:hover { transform: scale(1.1); background-color: #1ebe57; }
 @keyframes whatsapp-pulse {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
     70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* --- MÓVIL --- */
+/* --- MÓVIL (ACTUALIZADO CON MENÚ DESPLEGABLE) --- */
 @media (max-width: 900px) {
     .hero-container { flex-direction: column; text-align: center; padding-top: 20px; }
     .hero-text { margin-right: 0; margin-bottom: 50px; }
     .hero h1 { font-size: 3rem; }
     .cta-group { justify-content: center; }
     .hero-featured-img { width: 90%; max-width: 500px; }
-    .nav-links { display: none; }
+    
     .footer-container { flex-direction: column; }
     .footer-info { text-align: center; }
-    
-    /* En móvil el botón de WhatsApp se corre un poco para no tapar contenido */
     .btn-whatsapp { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+
+    /* Lógica del Menú Móvil */
+    .menu-toggle { display: block; z-index: 1001; } /* Botón visible */
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto a la derecha */
+        width: 70%;
+        height: 100vh;
+        background: #0a0a0a;
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s;
+        border-left: 2px solid var(--accent);
+        box-shadow: -10px 0 20px rgba(0,0,0,0.8);
+    }
+
+    .nav-links.active {
+        right: 0; /* Al agregar esta clase con JS, el menú entra */
+    }
+
+    .nav-links li { margin: 20px 0; }
+    .nav-links a { font-size: 1.5rem; }
 }
