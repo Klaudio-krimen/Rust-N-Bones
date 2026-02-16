@@ -14,10 +14,10 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: var(--font-body);
-    /* Aquí usamos tu archivo patroncalavera.jpg */
+    /* Ruta corregida: patroncalavera.jpg directo */
     background-image: 
         linear-gradient(rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.96)),
-        url('img/patroncalavera.jpg');
+        url('patroncalavera.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: 300px;
@@ -36,8 +36,8 @@ nav {
 /* --- HERO (PORTADA) --- */
 .hero {
     min-height: 100vh;
-    /* Aquí usamos tu archivo fondometal.jpg */
-    background: url('img/fondometal.jpg') no-repeat center center/cover;
+    /* Ruta corregida: fondometal.jpg directo */
+    background: url('fondometal.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
