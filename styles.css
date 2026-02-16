@@ -14,7 +14,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: var(--font-body);
-    /* Busca patroncalavera.jpg en la raíz */
     background-image: 
         linear-gradient(rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.96)),
         url('patroncalavera.jpg');
@@ -36,7 +35,6 @@ nav {
 /* --- PORTADA (HERO SECTION) --- */
 .hero {
     min-height: 100vh;
-    /* Busca fondometal.jpg en la raíz */
     background: url('fondometal.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
@@ -62,19 +60,16 @@ nav {
 
 /* --- IMAGEN DEL PEZ (AUMENTADA) --- */
 .hero-img-box { 
-    flex: 1.2; /* Le damos más espacio a la caja de la imagen */
+    flex: 1.2; 
     display: flex; 
     justify-content: center; 
 }
 
 .hero-featured-img {
     max-width: 100%;
-    /* AQUÍ ESTÁ EL TAMAÑO AUMENTADO */
-    width: 800px; 
+    width: 800px; /* TAMAÑO GIGANTE */
     border: none; 
-    /* Sombra inteligente que sigue la forma del pez */
     filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.9));
-    /* Animación de flotación */
     animation: float 6s ease-in-out infinite;
 }
 
@@ -95,7 +90,7 @@ nav {
     text-decoration: none; 
     font-weight: bold; 
     border: 2px solid var(--accent); 
-    margin-bottom: 10px; /* Espacio de seguridad abajo */
+    margin-bottom: 10px; 
 }
 
 .btn-secondary { 
@@ -152,7 +147,6 @@ footer p { color: #888; margin-bottom: 30px; }
     .hero h1 { font-size: 3rem; }
     .cta-group { justify-content: center; }
     
-    /* Pez grande en móvil pero sin salirse */
     .hero-featured-img { width: 90%; max-width: 500px; }
     
     .nav-links { display: none; }
