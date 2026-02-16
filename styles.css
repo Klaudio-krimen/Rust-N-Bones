@@ -14,7 +14,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: var(--font-body);
-    /* Fondo general */
     background-image: 
         linear-gradient(rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.96)),
         url('patroncalavera.jpg');
@@ -36,13 +35,12 @@ nav {
 /* --- HERO (PORTADA) --- */
 .hero {
     min-height: 100vh;
-    /* Fondo metálico de la portada */
     background: url('fondometal.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
     padding: 100px 5%;
-    overflow: hidden; /* Evita que animaciones salgan de la pantalla */
+    overflow: hidden;
 }
 
 .overlay {
@@ -66,12 +64,8 @@ nav {
 .hero-featured-img {
     max-width: 100%;
     width: 500px;
-    /* Eliminamos el borde cuadrado para que el PNG flote */
     border: none; 
-    /* Esta sombra sigue la silueta del pez, no el cuadrado */
     filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.8));
-    
-    /* Animación de flotación suave */
     animation: float 6s ease-in-out infinite;
 }
 
@@ -81,10 +75,31 @@ nav {
     100% { transform: translateY(0px); }
 }
 
-/* BOTONES */
+/* --- BOTONES (CORREGIDOS) --- */
 .cta-group { display: flex; gap: 10px; margin-top: 20px; }
-.btn-primary { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); }
-.btn-secondary { background: transparent; color: white; padding: 12px 25px; text-decoration: none; font-weight: bold; border: 2px solid white; }
+
+/* Aquí está el arreglo mágico: display inline-block y margenes */
+.btn-primary { 
+    display: inline-block; /* Esto evita que se monte encima del texto */
+    background: var(--accent); 
+    color: white; 
+    padding: 12px 25px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    border: 2px solid var(--accent); 
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+.btn-secondary { 
+    display: inline-block;
+    background: transparent; 
+    color: white; 
+    padding: 12px 25px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    border: 2px solid white; 
+    margin: 10px 0;
+}
 
 /* --- GALERÍA --- */
 section { padding: 80px 5%; border-bottom: 1px solid #222; }
@@ -96,12 +111,11 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 .card { background: #141414; border: 1px solid #333; transition: 0.3s; }
 .card:hover { transform: translateY(-5px); border-color: var(--accent); }
 
-/* Ajuste para las imágenes de las tarjetas */
 .card-img { 
     height: 250px; 
     background-size: cover; 
     background-position: center; 
-    background-color: #000; /* Fondo negro por si el PNG es transparente */
+    background-color: #000; 
     filter: grayscale(80%); 
     transition: 0.3s; 
 }
@@ -120,6 +134,11 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 
 footer { text-align: center; padding: 60px 20px; background: #000; border-top: 4px solid var(--accent); }
 footer h3 { font-family: var(--font-head); margin-bottom: 20px; color: white; }
+
+/* Arreglo extra para el footer: más espacio alrededor del botón */
+footer p { margin-bottom: 20px; } 
+footer .btn-primary { margin-top: 20px; margin-bottom: 30px; }
+
 .copyright { margin-top: 40px; font-size: 0.8rem; color: #555; }
 
 /* CELULARES */
