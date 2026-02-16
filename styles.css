@@ -1,0 +1,298 @@
+/* --- VARIABLES DE COLOR --- */
+:root {
+    --bg-dark: #0a0a0a;       /* Negro profundo */
+    --bg-card: #141414;       /* Negro tarjeta */
+    --accent: #d35400;        /* Naranja Óxido/Fuego */
+    --text-main: #e0e0e0;     /* Blanco sucio/Plata */
+    --text-dim: #a0a0a0;      /* Gris para detalles */
+    
+    --font-head: 'Black Ops One', cursive;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* --- RESET BÁSICO --- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+
+    /* --- FONDO ROCKERO CON CALAVERAS --- */
+    background-image: 
+        linear-gradient(rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.94)),
+        url('img/patron-calaveras.png');
+    
+    background-repeat: repeat;
+    background-attachment: fixed; /* El fondo se queda quieto */
+    background-size: 300px; /* Tamaño de las calaveritas */
+}
+
+/* --- NAVEGACIÓN --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid #333;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    color: var(--text-main);
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-main); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+.btn-nav {
+    border: 1px solid var(--accent);
+    padding: 8px 20px;
+    color: var(--accent) !important;
+    border-radius: 2px;
+}
+.btn-nav:hover { background: var(--accent); color: white !important; }
+
+/* --- HERO SECTION (PORTADA ESTILO GEMINI) --- */
+.hero {
+    min-height: 100vh;
+    /* Fondo de pared de metal */
+    background: url('img/fondo-metal.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 5% 50px 5%;
+    overflow: hidden;
+}
+
+/* Oscurecer la foto del metal para que se lea el texto */
+.overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.6));
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* TEXTO IZQUIERDA */
+.hero-text { flex: 1; max-width: 600px; }
+
+.hero h1 {
+    font-family: var(--font-head);
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 4px 4px 15px rgba(0,0,0,1);
+}
+
+.slogan-main {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* ESCENARIO DERECHA (LA LUZ MÁGICA) */
+.hero-stage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinear abajo */
+    position: relative;
+    height: 500px; /* Altura del área de la imagen */
+}
+
+/* El brillo en el suelo (Efecto Banana) */
+.light-glow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0.4); /* Aplastado como un plato */
+    width: 70%;
+    height: 150px;
+    background: radial-gradient(circle, rgba(211, 84, 0, 0.6) 0%, rgba(0,0,0,0) 70%);
+    filter: blur(20px);
+    z-index: 1;
+}
+
+/* La imagen del pez */
+.hero-sculpture {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    z-index: 2; /* Encima de la luz */
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.8)); /* Sombra de contacto */
+    /* Animación flotante suave */
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* BOTONES */
+.cta-group { display: flex; gap: 15px; }
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 15px 35px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    border: 2px solid var(--accent);
+}
+.btn-primary:hover { background: #a84300; border-color: #a84300; box-shadow: 0 0 15px var(--accent); }
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+.btn-secondary:hover { background: white; color: black; box-shadow: 0 0 15px white; }
+
+/* --- SECCIONES GENERALES --- */
+section { padding: 100px 5%; border-bottom: 1px solid #222; }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+
+h2 {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    color: var(--text-main);
+    display: inline-block;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 10px;
+}
+
+.subtitle {
+    display: block;
+    margin-top: 15px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* --- GRID DE PRODUCTOS --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card-img {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(80%) contrast(120%); /* Efecto rudo desaturado */
+    transition: 0.5s;
+}
+
+.card:hover .card-img {
+    filter: grayscale(0%) contrast(100%); /* Al pasar el mouse vuelve el color */
+}
+
+.card-info { padding: 25px; }
+
+.card-info h3 {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card-info p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 15px; }
+
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: #222;
+    color: var(--accent);
+    padding: 5px 10px;
+    border: 1px solid #444;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* --- GÉNESIS (ABOUT) --- */
+.text-section { text-align: center; background: rgba(0,0,0,0.3); }
+.content-box { max-width: 700px; margin: 0 auto; }
+.divider { border: 0; height: 1px; background: #333; width: 100px; margin: 20px auto; }
+.lead { font-size: 1.5rem; color: var(--accent); font-style: italic; margin-bottom: 30px; font-family: serif; }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 80px 20px;
+    background: #000;
+    border-top: 4px solid var(--accent);
+}
+
+footer h3 { font-family: var(--font-head); margin-bottom: 10px; font-size: 1.5rem; }
+footer p { color: #888; margin-bottom: 30px; }
+.socials { margin-top: 40px; }
+.socials a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+.copyright { margin-top: 50px; font-size: 0.8rem; color: #444; }
+
+/* --- RESPONSIVE (CELULARES) --- */
+@media (max-width: 900px) {
+    .hero-container { flex-direction: column; text-align: center; padding-top: 40px; }
+    .hero-text { margin-bottom: 40px; width: 100%; }
+    .hero h1 { font-size: 3rem; }
+    .slogan-main { font-size: 1rem; }
+    .cta-group { justify-content: center; }
+    
+    .hero-stage { height: 350px; width: 100%; }
+    .hero-sculpture { max-height: 300px; }
+    
+    .nav-links { display: none; } /* Ocultar menú en celular por ahora */
+    section { padding: 60px 5%; }
+}
