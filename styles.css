@@ -150,7 +150,7 @@ footer { background: #050505; padding: 80px 5% 30px 5%; border-top: 4px solid va
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* --- MÓVIL --- */
+/* --- MÓVIL (AQUÍ ESTÁ EL CAMBIO) --- */
 @media (max-width: 900px) {
     .hero-container { flex-direction: column; text-align: center; padding-top: 20px; }
     .hero-text { margin-right: 0; margin-bottom: 50px; }
@@ -161,7 +161,9 @@ footer { background: #050505; padding: 80px 5% 30px 5%; border-top: 4px solid va
     .footer-info { text-align: center; }
     .whatsapp-container { bottom: 20px; right: 20px; }
     .btn-whatsapp { width: 50px; height: 50px; }
-    .whatsapp-bubble { font-size: 0.8rem; max-width: 180px; }
+    
+    /* ESTA LÍNEA OCULTA EL GLOBO DE TEXTO EN CELULARES */
+    .whatsapp-bubble { display: none; }
 
     .menu-toggle { display: block; z-index: 1001; }
     .nav-links {
