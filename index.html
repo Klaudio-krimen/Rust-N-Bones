@@ -127,7 +127,7 @@
                 
                 <div class="contact-details">
                     <p>📞 +56 9 9053 0004</p>
-                    <p>📧 <a href="mailto:Patriciogarcia6307@gmail.com" class="mail-link">Patriciogarcia6307@gmail.com</a></p>
+                    <p>📧 <a href="mailto:patriciogarcia6206@gmail.com" class="mail-link">patriciogarcia6206@gmail.com</a></p>
                     <p>📍 Santiago, Chile</p>
                 </div>
 
@@ -170,21 +170,20 @@
         const navLinks = document.querySelector('.nav-links');
         menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // 2. Función Segura para Enviar Correo (Evita alerta de Chrome)
+        // 2. Función Segura para Enviar Correo (ACTUALIZADA)
         const safeForm = document.getElementById('safeForm');
         
         safeForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita el envío tradicional inseguro
+            e.preventDefault(); 
             
             const nombre = document.getElementById('nombre').value;
             const mensaje = document.getElementById('mensaje').value;
             
-            // Creamos el enlace mailto dinámicamente
-            const emailDestino = "Patriciogarcia6307@gmail.com";
+            // CORRECCIÓN AQUÍ: Correo actualizado
+            const emailDestino = "patriciogarcia6206@gmail.com";
             const asunto = `Cotización de ${nombre} - Rust N' Bones`;
             const cuerpo = `Hola Patricio, soy ${nombre}.\n\n${mensaje}\n\n(Enviado desde el sitio web)`;
             
-            // Abrimos el cliente de correo
             window.location.href = `mailto:${emailDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
         });
     </script>
