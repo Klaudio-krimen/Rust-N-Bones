@@ -94,11 +94,10 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 
 .card-img { 
     height: 300px; 
-    /* Ajuste clave: contain para que los PNG se vean enteros, cover cortaría las puntas */
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center; 
-    background-color: #050505; /* Fondo oscuro para que resalte el PNG */
+    background-color: #050505; 
     filter: grayscale(60%); 
     transition: 0.3s; 
 }
@@ -120,10 +119,15 @@ footer { background: #050505; padding: 80px 5% 30px 5%; border-top: 4px solid va
 .footer-info { flex: 1; min-width: 300px; text-align: left; }
 .footer-info h3 { font-family: var(--font-head); font-size: 2.5rem; color: white; margin-bottom: 10px; }
 .slogan-footer { color: var(--accent); font-weight: bold; letter-spacing: 2px; margin-bottom: 20px; }
-.contact-details p { margin-bottom: 10px; color: #fff; font-size: 1.1rem; }
+.contact-details p { margin-bottom: 15px; color: #fff; font-size: 1.1rem; }
 .socials { margin-top: 30px; font-weight: bold; }
 .socials a { color: white; text-decoration: none; transition: 0.3s; }
 .socials a:hover { color: var(--accent); }
+
+/* Enlaces de Correo y Botón Mail */
+.mail-link { color: var(--accent); text-decoration: none; font-weight: bold; }
+.mail-link:hover { text-decoration: underline; color: white; }
+.btn-mail { margin-top: 10px; display: inline-block; font-size: 0.9rem; padding: 10px 20px; }
 
 .form-wrapper { flex: 1; min-width: 300px; background: #111; padding: 30px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .contact-form { display: flex; flex-direction: column; gap: 20px; }

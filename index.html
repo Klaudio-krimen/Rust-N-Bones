@@ -34,7 +34,7 @@
                 <h2 class="slogan-main">ACERO ETERNO Y MADERA CON HISTORIA</h2>
                 <div class="cta-group">
                     <a href="#galeria" class="btn-primary">VER OBRAS</a>
-                    <a href="#contacto" class="btn-secondary">CONTACTO</a>
+                    <a href="mailto:Patriciogarcia6307@gmail.com" class="btn-secondary">CONTACTO</a>
                 </div>
             </div>
             <div class="hero-img-box">
@@ -135,7 +135,11 @@
                 
                 <div class="contact-details">
                     <p>📞 +56 9 9053 0004</p>
-                    <p>📧 contacto@rustnbones.cl</p>
+                    
+                    <p>📧 <a href="mailto:Patriciogarcia6307@gmail.com" class="mail-link">Patriciogarcia6307@gmail.com</a></p>
+                    
+                    <a href="mailto:Patriciogarcia6307@gmail.com" class="btn-primary btn-mail">ENVIAR CORREO</a>
+
                     <p>📍 Santiago, Chile</p>
                 </div>
 
@@ -145,15 +149,15 @@
             </div>
 
             <div class="form-wrapper">
-                <form action="#" method="POST" class="contact-form">
+                <form action="mailto:Patriciogarcia6307@gmail.com" method="POST" enctype="text/plain" class="contact-form">
                     <div class="input-group">
-                        <input type="text" placeholder="TU NOMBRE" required class="input-field" aria-label="Tu Nombre">
+                        <input type="text" name="nombre" placeholder="TU NOMBRE" required class="input-field" aria-label="Tu Nombre">
                     </div>
                     <div class="input-group">
-                        <input type="email" placeholder="TU CORREO" required class="input-field" aria-label="Tu Correo">
+                        <input type="email" name="email" placeholder="TU CORREO" required class="input-field" aria-label="Tu Correo">
                     </div>
                     <div class="input-group">
-                        <textarea placeholder="CUÉNTAME SOBRE TU PROYECTO..." rows="4" required class="input-field" aria-label="Mensaje del proyecto"></textarea>
+                        <textarea name="mensaje" placeholder="CUÉNTAME SOBRE TU PROYECTO..." rows="4" required class="input-field" aria-label="Mensaje del proyecto"></textarea>
                     </div>
                     <button type="submit" class="btn-primary full-width">ENVIAR MENSAJE</button>
                 </form>
