@@ -21,6 +21,7 @@
         <button class="menu-toggle" aria-label="Abrir menú">☰</button>
         <ul class="nav-links">
             <li><a href="#galeria">Colección</a></li>
+            <li><a href="#proceso">El Proceso</a></li>
             <li><a href="#genesis">Génesis</a></li>
             <li><a href="#contacto" class="btn-nav">Cotizar</a></li>
         </ul>
@@ -106,10 +107,61 @@
                     <span class="tag">Industrial</span>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('dragonmarino.jpg');"></div>
+                <div class="card-info">
+                    <h3>Leviatán Mecánico</h3>
+                    <p>Dragón marino forjado con cadena de distribución y engranajes.</p>
+                    <span class="tag">Escultura</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('lamparaturbo.jpg');"></div>
+                <div class="card-info">
+                    <h3>Turbo Light V2</h3>
+                    <p>Turbocompresor automotriz reciclado convertido en lámpara de mesa.</p>
+                    <span class="tag">Iluminación</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="genesis" class="text-section">
+    <section id="proceso" class="text-section">
+        <div class="section-header">
+            <h2>EL PROCESO</h2>
+            <span class="subtitle">De Chatarra a Arte Brutalista</span>
+        </div>
+        <p class="process-desc">Cada pieza tiene una historia. Así transformamos un par de bielas, un pistón, el manubrio de una bicicleta antigua y clavos de durmientes ferroviarios en el "Toro Mecánico".</p>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <img src="proceso1.jpeg" alt="Unión de bielas">
+                <p>1. Estructura base: Bielas soldadas y malla metálica frontal.</p>
+            </div>
+            <div class="process-step">
+                <img src="proceso2.jpeg" alt="Corte de manubrio">
+                <p>2. Presentación del manubrio de bicicleta antigua para los cuernos.</p>
+            </div>
+            <div class="process-step">
+                <img src="proceso3.jpeg" alt="Clavos y pistón">
+                <p>3. Selección de clavos de durmientes ferroviarios y pistón superior.</p>
+            </div>
+            <div class="process-step">
+                <img src="proceso4.jpeg" alt="Ajuste de piezas">
+                <p>4. Corte y preparación de las piezas antes de la forja final.</p>
+            </div>
+            <div class="process-step">
+                <img src="proceso5.jpeg" alt="Toro armado">
+                <p>5. Soldadura completa. El cráneo mecánico toma su forma.</p>
+            </div>
+            <div class="process-step">
+                <img src="proceso6.jpeg" alt="Toro exhibido">
+                <p>6. Obra finalizada y montada en la viga. Vida eterna al metal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="genesis" class="text-section" style="background: rgba(0,0,0,0.5);">
         <div class="content-box">
             <h2>GÉNESIS</h2>
             <hr class="divider">
@@ -165,25 +217,18 @@
     </div>
 
     <script>
-        // 1. Menú Móvil
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // 2. Función Segura para Enviar Correo (ACTUALIZADA)
         const safeForm = document.getElementById('safeForm');
-        
         safeForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
-            
             const nombre = document.getElementById('nombre').value;
             const mensaje = document.getElementById('mensaje').value;
-            
-            // CORRECCIÓN AQUÍ: Correo actualizado
             const emailDestino = "patriciogarcia6206@gmail.com";
             const asunto = `Cotización de ${nombre} - Rust N' Bones`;
             const cuerpo = `Hola Patricio, soy ${nombre}.\n\n${mensaje}\n\n(Enviado desde el sitio web)`;
-            
             window.location.href = `mailto:${emailDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
         });
     </script>
