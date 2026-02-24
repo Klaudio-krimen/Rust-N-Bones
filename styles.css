@@ -32,6 +32,7 @@ nav {
 .nav-links { list-style: none; display: flex; gap: 20px; }
 .nav-links a { text-decoration: none; color: white; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 .btn-nav { border: 1px solid var(--accent); padding: 5px 15px; color: var(--accent) !important; }
+
 .menu-toggle { display: none; background: transparent; border: none; color: white; font-size: 2rem; cursor: pointer; }
 
 /* --- HERO --- */
@@ -106,8 +107,7 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 .tag { font-size: 0.75rem; background: #222; color: var(--accent); padding: 5px 10px; border: 1px solid #444; font-weight: bold; }
 
 /* --- NUEVO: SECCIÓN EL PROCESO --- */
-.text-section { text-align: center; background: rgba(0,0,0,0.3); }
-.process-desc { color: #aaa; max-width: 800px; margin: 0 auto 50px auto; font-size: 1.2rem; line-height: 1.6; }
+.process-desc { color: #aaa; max-width: 800px; margin: 0 auto 50px auto; font-size: 1.2rem; line-height: 1.6; text-align: center; }
 
 .process-grid {
     display: grid;
@@ -134,7 +134,7 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 .process-step img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Esto hace que la foto rellene el cuadro sin deformarse */
+    object-fit: cover;
     border-bottom: 3px solid var(--accent);
     margin-bottom: 15px;
     filter: grayscale(50%);
@@ -152,6 +152,7 @@ h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); 
 }
 
 /* --- HISTORIA --- */
+.text-section { text-align: center; background: rgba(0,0,0,0.3); }
 .content-box { max-width: 700px; margin: 0 auto; }
 .lead { font-size: 1.4rem; color: var(--accent); font-style: italic; margin-bottom: 30px; }
 .divider { border: 0; height: 1px; background: #333; width: 100px; margin: 30px auto; }
@@ -172,3 +173,48 @@ footer { background: #050505; padding: 80px 5% 30px 5%; border-top: 4px solid va
 .form-wrapper { flex: 1; min-width: 300px; background: #111; padding: 30px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .contact-form { display: flex; flex-direction: column; gap: 20px; }
 .input-field { width: 100%; padding: 15px; background: #1a1a1a; border: 1px solid #333; color: white; font-family: var(--font-body); font-size: 1rem; transition: 0.3s; outline: none; }
+.input-field:focus { border-color: var(--accent); background: #222; }
+.full-width { width: 100%; text-align: center; cursor: pointer; border: none; font-size: 1.1rem; }
+.copyright { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #222; font-size: 0.8rem; color: #555; }
+
+/* --- WHATSAPP --- */
+.whatsapp-container {
+    position: fixed; bottom: 30px; right: 30px; z-index: 2000; display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+}
+.whatsapp-bubble {
+    background: white; color: #333; padding: 10px 15px; border-radius: 10px 10px 0 10px; font-size: 0.9rem; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-width: 200px; text-align: right; opacity: 0; transform: translateY(20px); animation: bubble-appear 0.5s ease-out forwards; animation-delay: 2s;
+}
+.btn-whatsapp {
+    background-color: var(--whatsapp-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); transition: transform 0.3s ease; animation: whatsapp-pulse 3s infinite;
+}
+.btn-whatsapp:hover { transform: scale(1.1); background-color: #1ebe57; }
+@keyframes bubble-appear { to { opacity: 1; transform: translateY(0); } }
+@keyframes whatsapp-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- MÓVIL (CORREGIDO PARA QUE NO SE CORTE) --- */
+@media (max-width: 900px) {
+    .hero-container { flex-direction: column; text-align: center; padding-top: 20px; }
+    .hero-text { margin-right: 0; margin-bottom: 50px; }
+    .hero h1 { font-size: 3rem; }
+    .cta-group { justify-content: center; }
+    .hero-featured-img { width: 90%; max-width: 500px; }
+    .footer-container { flex-direction: column; }
+    .footer-info { text-align: center; }
+    .whatsapp-container { bottom: 20px; right: 20px; }
+    .btn-whatsapp { width: 50px; height: 50px; }
+    
+    /* Esta es la línea clave que oculta la burbuja SOLO en celular */
+    .whatsapp-bubble { display: none !important; }
+
+    .menu-toggle { display: block; z-index: 1001; }
+    .nav-links {
+        position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: #0a0a0a; flex-direction: column; justify-content: center; transition: 0.4s; border-left: 2px solid var(--accent); box-shadow: -10px 0 20px rgba(0,0,0,0.8);
+    }
+    .nav-links.active { right: 0; }
+    .nav-links li { margin: 20px 0; }
+    .nav-links a { font-size: 1.5rem; }
+}
