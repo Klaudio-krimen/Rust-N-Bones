@@ -3,234 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Rust N' Bones: Arte industrial, esculturas biomecánicas y mobiliario exclusivo fabricado con piezas de motor recicladas en Chile.">
-    <link rel="icon" type="image/png" href="pez.png">
-    
-    <title>Rust N' Bones | Arte Industrial & Mobiliario</title>
+    <title>Rust N' Bones | Arte Industrial y Esculturas en Santiago, Chile</title>
+    <meta name="description" content="Esculturas biomecánicas y mobiliario industrial único fabricado con piezas de motor recicladas. Taller artesanal de Patricio en Santiago, Chile. Cotiza tu obra.">
     <meta name="google-site-verification" content="pLruoWNjAsDoSHUL2SrdQs3o6s0_fejrnaGv6rywwpk" />
-    
+    <link rel="canonical" href="https://rustnbones.cl/" />
+    <link rel="icon" type="image/png" href="pez.png">
+    <link rel="preload" as="image" href="fondometal.jpg" fetchpriority="high" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rust N' Bones | Arte Industrial y Esculturas en Santiago" />
+    <meta property="og:description" content="Esculturas biomecánicas y mobiliario industrial único fabricado con piezas de motor recicladas. Taller artesanal en Santiago, Chile." />
+    <meta property="og:image" content="https://rustnbones.cl/pez.png" />
+    <meta property="og:url" content="https://rustnbones.cl/" />
+    <meta property="og:locale" content="es_CL" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rust N' Bones | Arte Industrial Santiago" />
+    <meta name="twitter:description" content="Esculturas biomecánicas y mobiliario con piezas de motor recicladas. Santiago, Chile." />
+    <meta name="twitter:image" content="https://rustnbones.cl/pez.png" />
+    <!-- Fonts (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@400;600&display=swap"></noscript>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">RUST N' BONES</div>
-        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-        <ul class="nav-links">
-            <li><a href="#galeria">Colección</a></li>
-            <li><a href="#proceso">El Proceso</a></li>
-            <li><a href="#genesis">Génesis</a></li>
-            <li><a href="#contacto" class="btn-nav">Cotizar</a></li>
-        </ul>
+    <!-- Grain texture overlay -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Floating Island Nav -->
+    <nav class="nav-island" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">R&amp;B</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#galeria">Colección</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#genesis">Historia</a></li>
+                <li><a href="#contacto" class="nav-cta">Cotizar <span class="nav-cta-icon">↗</span></a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="overlay"></div>
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true">
+        <ul class="nav-overlay-links">
+            <li><a href="#galeria" class="nav-overlay-link">Colección</a></li>
+            <li><a href="#proceso" class="nav-overlay-link">Proceso</a></li>
+            <li><a href="#genesis" class="nav-overlay-link">Historia</a></li>
+            <li><a href="#contacto" class="nav-overlay-link">Cotizar</a></li>
+        </ul>
+        <div class="nav-overlay-footer">
+            <p>+56 9 9053 0004 · Santiago, Chile</p>
+        </div>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <header class="hero" id="inicio">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+
         <div class="hero-container">
-            <div class="hero-text">
-                <h1>RUST N' BONES</h1>
-                <h2 class="slogan-main">ACERO ETERNO Y MADERA CON HISTORIA</h2>
-                <div class="cta-group">
-                    <a href="#galeria" class="btn-primary">VER OBRAS</a>
-                    <a href="#contacto" class="btn-secondary">CONTACTO</a>
+            <div class="hero-text reveal">
+                <span class="eyebrow">Arte Industrial · Santiago, Chile</span>
+                <h1 class="hero-title">
+                    <span class="hero-title-line">RUST</span>
+                    <span class="hero-title-line accent-line">N' BONES</span>
+                </h1>
+                <p class="hero-subtitle">Acero eterno y madera con historia.<br>Piezas únicas forjadas de motor a arte.</p>
+                <div class="hero-cta">
+                    <a href="#galeria" class="btn-primary">
+                        Ver Obras
+                        <span class="btn-icon">↗</span>
+                    </a>
+                    <a href="#contacto" class="btn-ghost">Cotizar Pieza</a>
                 </div>
             </div>
-            <div class="hero-img-box">
-                <img src="pez.png" alt="Escultura Pez Abisal hecha con cadenas y metal reciclado" class="hero-featured-img">
+
+            <div class="hero-visual reveal">
+                <div class="hero-frame-outer">
+                    <div class="hero-frame-inner">
+                        <img src="pez.png" alt="Abyssal Hunter — escultura biomecánica de pez fabricada con cadenas y metal reciclado" class="hero-img">
+                    </div>
+                </div>
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Pieza Única
+                </div>
             </div>
+        </div>
+
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </header>
 
-    <section id="galeria" class="section-dark">
-        <div class="section-header">
-            <h2>OBRAS RECIENTES</h2>
-            <span class="subtitle">Esculturas & Mobiliario</span>
-        </div>
-        
-        <div class="grid-container">
-            <div class="card">
-                <div class="card-img" style="background-image: url('pez.png');"></div>
-                <div class="card-info">
-                    <h3>Abyssal Hunter</h3>
-                    <p>Escultura biomecánica. Cadena de distribución y acero.</p>
-                    <span class="tag">Pieza Única</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('Rack2.jpg'); background-size: cover;"></div>
-                <div class="card-info">
-                    <h3>Rack "Iron Roots"</h3>
-                    <p>Roble de demolición y estructura de acero reforzado.</p>
-                    <span class="tag">A Pedido</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('mesa.png');"></div>
-                <div class="card-info">
-                    <h3>Mesa Rim Art</h3>
-                    <p>Llanta automotriz rescatada y pulida. Vidrio templado.</p>
-                    <span class="tag">Reciclaje</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('buho.png');"></div>
-                <div class="card-info">
-                    <h3>Night Watcher</h3>
-                    <p>Creado a partir de un piñón de motocicleta y rodamientos.</p>
-                    <span class="tag">Escultura</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('calavera.png');"></div>
-                <div class="card-info">
-                    <h3>T-800 Prototype</h3>
-                    <p>Tributo Cyberdyne. Metal puro, pistones y mirada fría.</p>
-                    <span class="tag">Colección</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('lampara.png');"></div>
-                <div class="card-info">
-                    <h3>Gear Lamp V1</h3>
-                    <p>Eje central de transmisión mecánica convertido en luz.</p>
-                    <span class="tag">Iluminación</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('mano.png');"></div>
-                <div class="card-info">
-                    <h3>Cyber Grip</h3>
-                    <p>Palancas y tuercas estilo Terminator. Articulación fija.</p>
-                    <span class="tag">Industrial</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('dragonmarino.jpg');"></div>
-                <div class="card-info">
-                    <h3>Leviatán Mecánico</h3>
-                    <p>Dragón marino forjado con cadena de distribución y engranajes.</p>
-                    <span class="tag">Escultura</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('lamparaturbo.jpg');"></div>
-                <div class="card-info">
-                    <h3>Turbo Light V2</h3>
-                    <p>Turbocompresor automotriz reciclado convertido en lámpara de mesa.</p>
-                    <span class="tag">Iluminación</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proceso" class="text-section">
-        <div class="section-header">
-            <h2>EL PROCESO</h2>
-            <span class="subtitle">De Chatarra a Arte Brutalista</span>
-        </div>
-        <p class="process-desc">Cada pieza tiene una historia. Así transformamos un par de bielas, un pistón, el manubrio de una bicicleta antigua y clavos de durmientes ferroviarios en el "Toro Mecánico".</p>
-        
-        <div class="process-grid">
-            <div class="process-step">
-                <img src="proceso1.jpeg" alt="Unión de bielas">
-                <p>1. Estructura base: Bielas soldadas y malla metálica frontal.</p>
-            </div>
-            <div class="process-step">
-                <img src="proceso2.jpeg" alt="Corte de manubrio">
-                <p>2. Presentación del manubrio de bicicleta antigua para los cuernos.</p>
-            </div>
-            <div class="process-step">
-                <img src="proceso3.jpeg" alt="Clavos y pistón">
-                <p>3. Selección de clavos de durmientes ferroviarios y pistón superior.</p>
-            </div>
-            <div class="process-step">
-                <img src="proceso4.jpeg" alt="Ajuste de piezas">
-                <p>4. Corte y preparación de las piezas antes de la forja final.</p>
-            </div>
-            <div class="process-step">
-                <img src="proceso5.jpeg" alt="Toro armado">
-                <p>5. Soldadura completa. El cráneo mecánico toma su forma.</p>
-            </div>
-            <div class="process-step">
-                <img src="proceso6.jpeg" alt="Toro exhibido">
-                <p>6. Obra finalizada y montada en la viga. Vida eterna al metal.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="genesis" class="text-section" style="background: rgba(0,0,0,0.5);">
-        <div class="content-box">
-            <h2>GÉNESIS</h2>
-            <hr class="divider">
-            <p class="lead">"Nunca vi chatarra. Siempre vi piezas esperando su segunda vida."</p>
-            <p>Soy Patricio. Durante más de 20 años, mis manos han estado cubiertas de grasa reparando motores. Hoy, uso ese mismo fuego para forjar piezas que durarán más que nosotros.</p>
-        </div>
-    </section>
-
-    <footer id="contacto">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>¿TIENES UNA IDEA?</h3>
-                <p class="slogan-footer">FORJEMOS ALGO ÚNICO.</p>
-                <p>Cuéntame qué necesitas: un mueble a medida, una escultura específica o restaurar una pieza olvidada.</p>
-                
-                <div class="contact-details">
-                    <p>📞 +56 9 9053 0004</p>
-                    <p>📧 <a href="mailto:patriciogarcia6206@gmail.com" class="mail-link">patriciogarcia6206@gmail.com</a></p>
-                    <p>📍 Santiago, Chile</p>
-                </div>
-
-                <div class="socials">
-                    <a href="#" aria-label="Ir a Instagram">Instagram</a> • <a href="#" aria-label="Ir a TikTok">TikTok</a>
-                </div>
+    <!-- ═══ GALERÍA ═══ -->
+    <section id="galeria" class="section">
+        <div class="section-container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Colección</span>
+                <h2 class="section-title">OBRAS RECIENTES</h2>
+                <p class="section-sub">Esculturas &amp; Mobiliario Industrial</p>
             </div>
 
-            <div class="form-wrapper">
-                <form id="safeForm" class="contact-form">
-                    <div class="input-group">
-                        <input type="text" id="nombre" placeholder="TU NOMBRE" required class="input-field" aria-label="Tu Nombre">
+            <div class="bento-grid">
+                <div class="bento-card bento-featured reveal" data-delay="0">
+                    <div class="bento-card-inner">
+                        <img src="pez.png" alt="Escultura Abyssal Hunter — pez biomecánico con cadena de distribución y acero reciclado" class="bento-img" loading="eager">
+                        <div class="bento-info">
+                            <span class="bento-tag">Pieza Única</span>
+                            <h3 class="bento-title">Abyssal Hunter</h3>
+                            <p class="bento-desc">Cadena de distribución y acero reciclado.</p>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <textarea id="mensaje" placeholder="CUÉNTAME SOBRE TU PROYECTO..." rows="4" required class="input-field" aria-label="Mensaje del proyecto"></textarea>
+                </div>
+
+                <div class="bento-card reveal" data-delay="100">
+                    <div class="bento-card-inner">
+                        <img src="Rack2.jpg" alt="Rack Iron Roots — estructura de roble de demolición y acero reforzado" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">A Pedido</span>
+                            <h3 class="bento-title">Iron Roots</h3>
+                            <p class="bento-desc">Roble de demolición y acero reforzado.</p>
+                        </div>
                     </div>
-                    <button type="submit" class="btn-primary full-width">ENVIAR CORREO</button>
-                </form>
+                </div>
+
+                <div class="bento-card reveal" data-delay="200">
+                    <div class="bento-card-inner">
+                        <img src="mesa.png" alt="Mesa Rim Art — llanta automotriz rescatada y vidrio templado" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Reciclaje</span>
+                            <h3 class="bento-title">Mesa Rim Art</h3>
+                            <p class="bento-desc">Llanta automotriz y vidrio templado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal" data-delay="0">
+                    <div class="bento-card-inner">
+                        <img src="buho.png" alt="Night Watcher — búho mecánico creado con piñón de motocicleta y rodamientos" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Escultura</span>
+                            <h3 class="bento-title">Night Watcher</h3>
+                            <p class="bento-desc">Piñón de motocicleta y rodamientos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-wide reveal" data-delay="100">
+                    <div class="bento-card-inner">
+                        <img src="calavera.png" alt="T-800 Prototype — escultura de calavera mecánica con pistones y metal puro" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Colección</span>
+                            <h3 class="bento-title">T-800 Prototype</h3>
+                            <p class="bento-desc">Metal puro, pistones y mirada fría.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal" data-delay="0">
+                    <div class="bento-card-inner">
+                        <img src="lampara.png" alt="Gear Lamp V1 — lámpara industrial fabricada con eje de transmisión mecánica" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Iluminación</span>
+                            <h3 class="bento-title">Gear Lamp V1</h3>
+                            <p class="bento-desc">Eje de transmisión convertido en luz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-wide reveal" data-delay="100">
+                    <div class="bento-card-inner">
+                        <img src="dragonmarino.jpg" alt="Leviatán Mecánico — dragón marino forjado con cadena de distribución y engranajes" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Escultura</span>
+                            <h3 class="bento-title">Leviatán Mecánico</h3>
+                            <p class="bento-desc">Dragón forjado con cadena y engranajes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal" data-delay="200">
+                    <div class="bento-card-inner">
+                        <img src="mano.png" alt="Cyber Grip — mano mecánica articulada con palancas y tuercas industriales" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Industrial</span>
+                            <h3 class="bento-title">Cyber Grip</h3>
+                            <p class="bento-desc">Palancas y tuercas articuladas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal" data-delay="300">
+                    <div class="bento-card-inner">
+                        <img src="lamparaturbo.jpg" alt="Turbo Light V2 — turbocompresor automotriz reciclado convertido en lámpara de mesa" class="bento-img" loading="lazy">
+                        <div class="bento-info">
+                            <span class="bento-tag">Iluminación</span>
+                            <h3 class="bento-title">Turbo Light V2</h3>
+                            <p class="bento-desc">Turbocompresor convertido en lámpara.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>© 2026 Rust N' Bones. Hecho a mano en Chile.</p>
+    </section>
+
+    <!-- ═══ PROCESO ═══ -->
+    <section id="proceso" class="section section-alt">
+        <div class="section-container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Fabricación</span>
+                <h2 class="section-title">EL PROCESO</h2>
+                <p class="section-sub">De chatarra a arte brutalista</p>
+            </div>
+            <p class="process-lead reveal">Cada pieza tiene una historia. Así transformamos bielas, un pistón, el manubrio de una bicicleta antigua y clavos de durmientes ferroviarios en el "Toro Mecánico".</p>
+
+            <div class="process-grid">
+                <div class="process-step reveal" data-delay="0">
+                    <div class="process-frame">
+                        <img src="proceso1.jpeg" alt="Estructura base: bielas soldadas y malla metálica frontal" loading="lazy">
+                    </div>
+                    <div class="process-step-info">
+                        <span class="process-num">01</span>
+                        <p>Estructura base: Bielas soldadas y malla metálica frontal.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal" data-delay="100">
+                    <div class="process-frame">
+                        <img src="proceso2.jpeg" alt="Presentación del manubrio de bicicleta antigua para los cuernos" loading="lazy">
+                    </div>
+                    <div class="process-step-info">
+                        <span class="process-num">02</span>
+                        <p>Presentación del manubrio de bicicleta antigua para los cuernos.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal" data-delay="200">
+                    <div class="process-frame">
+                        <img src="proceso3.jpeg" alt="Selección de clavos de durmientes ferroviarios y pistón superior" loading="lazy">
+                    </div>
+                    <div class="process-step-info">
+                        <span class="process-num">03</span>
+                        <p>Selección de clavos de durmientes ferroviarios y pistón superior.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal" data-delay="0">
+                    <div class="process-frame">
+                        <img src="proceso4.jpeg" alt="Corte y preparación de las piezas antes de la forja final" loading="lazy">
+                    </div>
+                    <div class="process-step-info">
+                        <span class="process-num">04</span>
+                        <p>Corte y preparación de las piezas antes de la forja final.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal" data-delay="100">
+                    <div class="process-frame">
+                        <img src="proceso5.jpeg" alt="Soldadura completa — el cráneo mecánico toma su forma" loading="lazy">
+                    </div>
+                    <div class="process-step-info">
+                        <span class="process-num">05</span>
+                        <p>Soldadura completa. El cráneo mecánico toma su forma.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal" data-delay="200">
+                    <div class="process-frame">
+                        <img src="proceso6.jpeg" alt="Obra finalizada y montada en la viga — vida eterna al metal" loading="lazy">
+                    </div>
+                    <div class="process-step-info">
+                        <span class="process-num">06</span>
+                        <p>Obra finalizada y montada en la viga. Vida eterna al metal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ GÉNESIS ═══ -->
+    <section id="genesis" class="section genesis-section">
+        <div class="section-container">
+            <div class="genesis-inner reveal">
+                <div class="genesis-quote-block">
+                    <div class="genesis-quote-mark" aria-hidden="true">"</div>
+                    <blockquote class="genesis-quote">
+                        Nunca vi chatarra.<br>Siempre vi piezas<br>esperando su segunda vida.
+                    </blockquote>
+                </div>
+                <div class="genesis-body">
+                    <span class="eyebrow">Génesis</span>
+                    <p>Soy Patricio. Durante más de 20 años, mis manos han estado cubiertas de grasa reparando motores. Hoy, uso ese mismo fuego para forjar piezas que durarán más que nosotros.</p>
+                    <div class="genesis-divider"></div>
+                    <div class="genesis-stats">
+                        <div class="genesis-stat">
+                            <span class="stat-num">20+</span>
+                            <span class="stat-label">Años de oficio</span>
+                        </div>
+                        <div class="genesis-stat">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Piezas únicas</span>
+                        </div>
+                        <div class="genesis-stat">
+                            <span class="stat-num">CL</span>
+                            <span class="stat-label">Hecho en Chile</span>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="btn-primary" style="margin-top: 40px; display: inline-flex;">
+                        Forjemos algo único
+                        <span class="btn-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTACTO ═══ -->
+    <footer id="contacto" class="section footer-section">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-info reveal">
+                    <span class="eyebrow">Contacto</span>
+                    <h2 class="footer-title">¿TIENES<br>UNA IDEA?</h2>
+                    <p class="footer-tagline">Forjemos algo único.</p>
+                    <p class="footer-body">Cuéntame qué necesitas: un mueble a medida, una escultura específica o restaurar una pieza olvidada.</p>
+
+                    <div class="contact-links">
+                        <a href="tel:+56990530004" class="contact-link">
+                            <span class="contact-link-icon">↗</span>
+                            +56 9 9053 0004
+                        </a>
+                        <a href="mailto:patriciogarcia6206@gmail.com" class="contact-link">
+                            <span class="contact-link-icon">↗</span>
+                            patriciogarcia6206@gmail.com
+                        </a>
+                        <div class="contact-link">
+                            <span class="contact-link-icon">◈</span>
+                            Santiago, Chile
+                        </div>
+                    </div>
+
+                    <div class="socials">
+                        <a href="#" class="social-link" aria-label="Ir a Instagram">Instagram</a>
+                        <span class="social-sep">·</span>
+                        <a href="#" class="social-link" aria-label="Ir a TikTok">TikTok</a>
+                    </div>
+                </div>
+
+                <div class="footer-form reveal" data-delay="200">
+                    <div class="form-shell">
+                        <div class="form-inner">
+                            <form id="safeForm" class="contact-form">
+                                <div class="field-group">
+                                    <input type="text" id="nombre" required class="field-input" placeholder=" " aria-label="Tu nombre">
+                                    <label for="nombre" class="field-label">Tu nombre</label>
+                                </div>
+                                <div class="field-group">
+                                    <textarea id="mensaje" required class="field-input field-textarea" placeholder=" " rows="5" aria-label="Tu proyecto"></textarea>
+                                    <label for="mensaje" class="field-label">Cuéntame sobre tu proyecto...</label>
+                                </div>
+                                <button type="submit" class="btn-primary btn-full">
+                                    Enviar mensaje
+                                    <span class="btn-icon">↗</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom reveal">
+                <p>© 2026 Rust N' Bones. Hecho a mano en Chile.</p>
+                <p>Arte industrial · Piezas únicas · Santiago</p>
+            </div>
         </div>
     </footer>
 
-    <div class="whatsapp-container">
-        <div class="whatsapp-bubble">
-            Hola, soy Patricio. ¿Transformamos tu idea en metal? 🛠️
-        </div>
-        <a href="https://wa.me/56990530004?text=Hola%20Patricio%20%F0%9F%A4%98%2C%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto..." class="btn-whatsapp" target="_blank" aria-label="Chat de WhatsApp">
-            <svg viewBox="0 0 24 24" fill="white" width="35px" height="35px">
+    <!-- WhatsApp -->
+    <div class="wa-container">
+        <a href="https://wa.me/56990530004?text=Hola%20Patricio%20%F0%9F%A4%98%2C%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto..." class="wa-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="white" width="26" height="26" aria-hidden="true">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
         </a>
     </div>
 
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ArtGallery",
+          "@id": "https://rustnbones.cl/#business",
+          "name": "Rust N' Bones",
+          "alternateName": "Rust N Bones",
+          "description": "Arte industrial, esculturas biomecánicas y mobiliario exclusivo fabricado con piezas de motor recicladas. Obras únicas a pedido en Santiago, Chile.",
+          "url": "https://rustnbones.cl/",
+          "logo": { "@type": "ImageObject", "url": "https://rustnbones.cl/pez.png" },
+          "image": "https://rustnbones.cl/pez.png",
+          "telephone": "+56990530004",
+          "email": "patriciogarcia6206@gmail.com",
+          "priceRange": "$$",
+          "currenciesAccepted": "CLP",
+          "paymentAccepted": "Transferencia bancaria, efectivo",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santiago",
+            "addressRegion": "Región Metropolitana",
+            "addressCountry": "CL"
+          },
+          "areaServed": { "@type": "Country", "name": "Chile" },
+          "founder": { "@id": "https://rustnbones.cl/#patricio" },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+56990530004",
+            "contactType": "sales",
+            "availableLanguage": "Spanish"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://rustnbones.cl/#website",
+          "url": "https://rustnbones.cl/",
+          "name": "Rust N' Bones | Arte Industrial & Mobiliario",
+          "inLanguage": "es-CL",
+          "publisher": { "@id": "https://rustnbones.cl/#business" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://rustnbones.cl/#patricio",
+          "name": "Patricio",
+          "jobTitle": "Artista Industrial y Fundador",
+          "description": "Artesano con más de 20 años de experiencia en mecánica automotriz. Fundador de Rust N' Bones.",
+          "worksFor": { "@id": "https://rustnbones.cl/#business" }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://rustnbones.cl/#coleccion",
+          "name": "Obras Recientes — Rust N' Bones",
+          "numberOfItems": 9,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Abyssal Hunter", "description": "Escultura biomecánica fabricada con cadena de distribución y acero reciclado. Pieza única.", "image": "https://rustnbones.cl/pez.png", "material": "Cadena de distribución, acero reciclado", "offers": { "@type": "Offer", "availability": "https://schema.org/LimitedAvailability", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Rack Iron Roots", "description": "Rack de almacenamiento con roble de demolición y acero reforzado. Fabricado a pedido.", "image": "https://rustnbones.cl/Rack2.jpg", "material": "Roble de demolición, acero reforzado", "offers": { "@type": "Offer", "availability": "https://schema.org/MadeToOrder", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "Mesa Rim Art", "description": "Mesa con base en llanta automotriz rescatada y pulida. Superficie de vidrio templado.", "image": "https://rustnbones.cl/mesa.png", "material": "Llanta automotriz reciclada, vidrio templado", "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "Night Watcher", "description": "Escultura de búho creada con piñón de motocicleta y rodamientos.", "image": "https://rustnbones.cl/buho.png", "material": "Piñón de motocicleta, rodamientos", "offers": { "@type": "Offer", "availability": "https://schema.org/LimitedAvailability", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "T-800 Prototype", "description": "Escultura tributo Cyberdyne. Metal puro con pistones.", "image": "https://rustnbones.cl/calavera.png", "material": "Metal, pistones", "offers": { "@type": "Offer", "availability": "https://schema.org/LimitedAvailability", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 6, "item": { "@type": "Product", "name": "Gear Lamp V1", "description": "Lámpara industrial fabricada con eje de transmisión mecánica.", "image": "https://rustnbones.cl/lampara.png", "material": "Eje de transmisión mecánica", "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 7, "item": { "@type": "Product", "name": "Leviatán Mecánico", "description": "Dragón marino forjado con cadena de distribución y engranajes.", "image": "https://rustnbones.cl/dragonmarino.jpg", "material": "Cadena de distribución, engranajes", "offers": { "@type": "Offer", "availability": "https://schema.org/LimitedAvailability", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 8, "item": { "@type": "Product", "name": "Cyber Grip", "description": "Mano mecánica articulada fabricada con palancas y tuercas estilo industrial.", "image": "https://rustnbones.cl/mano.png", "material": "Palancas, tuercas", "offers": { "@type": "Offer", "availability": "https://schema.org/LimitedAvailability", "priceCurrency": "CLP" } } },
+            { "@type": "ListItem", "position": 9, "item": { "@type": "Product", "name": "Turbo Light V2", "description": "Turbocompresor automotriz reciclado convertido en lámpara de mesa.", "image": "https://rustnbones.cl/lamparaturbo.jpg", "material": "Turbocompresor automotriz reciclado", "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "CLP" } } }
+          ]
+        }
+      ]
+    }
+    </script>
 
-        const safeForm = document.getElementById('safeForm');
-        safeForm.addEventListener('submit', function(e) {
-            e.preventDefault(); 
+    <script>
+        // ── Nav toggle (hamburger morph + overlay) ──
+        const navToggle = document.getElementById('navToggle');
+        const navOverlay = document.getElementById('navOverlay');
+        const nav = document.getElementById('nav');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navOverlay.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            navOverlay.setAttribute('aria-hidden', !isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.nav-overlay-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navOverlay.classList.remove('active');
+                navToggle.classList.remove('active');
+                navOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ── Nav scroll state ──
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        // ── Scroll reveal via IntersectionObserver ──
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = parseInt(entry.target.dataset.delay || 0);
+                    setTimeout(() => entry.target.classList.add('revealed'), delay);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Contact form → mailto ──
+        document.getElementById('safeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             const nombre = document.getElementById('nombre').value;
             const mensaje = document.getElementById('mensaje').value;
-            const emailDestino = "patriciogarcia6206@gmail.com";
             const asunto = `Cotización de ${nombre} - Rust N' Bones`;
             const cuerpo = `Hola Patricio, soy ${nombre}.\n\n${mensaje}\n\n(Enviado desde el sitio web)`;
-            window.location.href = `mailto:${emailDestino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+            window.location.href = `mailto:patriciogarcia6206@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
         });
     </script>
 
